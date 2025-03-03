@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #000000, #222222, #444444, #ffffff); /* Smooth black-to-white gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Updated Login Box Style - From Uiverse.io by nikk7007 */
+.login-container {
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  max-width: 350px;
+  position: relative;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: #00A97F;
+  transition: .5s;
+  overflow: hidden;
+}
+
+.login-container::before, .login-container::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: #00A97F;
+  transition: 1s ease;
+}
+
+.login-container::before {
+  top: -1em;
+  left: -1em;
+}
+
+.login-container::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.login-container:hover::before, .login-container:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.login-container:hover {
+  color: rgb(10, 25, 30);
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Ensures even spacing between input fields */
+  align-items: center;
+  width: 100%;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Updated Login Button Style - From Uiverse.io by 0xnihilism */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #000000;
+  border-radius: 12px;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #356854;
+  position: relative;
+  box-shadow: 4px 4px 0px #000000;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -150%;
+  width: 300%;
+  height: 300%;
+  border-radius: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+  background-color: #316b58;
+}
+
+button:hover::before {
+  transform: translateX(-50%) scale(1);
+}
+
+button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #000000;
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}

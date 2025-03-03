@@ -1,0 +1,20 @@
+{
+    "name": "my-smart-doorbell",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "start": "vite",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-router-dom": "^6.14.1"
+    },
+    "devDependencies": {
+      "vite": "^4.0.0"
+    }
+  }
+  

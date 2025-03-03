@@ -1,0 +1,12 @@
+.dashboard {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  video {
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  
