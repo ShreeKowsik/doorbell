@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { FaVideo, FaCogs, FaBell, FaHome } from "react-icons/fa";
+import { FaVideo, FaCogs, FaBell, FaHome, FaFolderOpen } from "react-icons/fa"; // Import the Old Footage icon
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -27,6 +27,7 @@ const Dashboard = () => {
         <ul>
           <li><FaHome className="icon" /> Home</li>
           <li><FaVideo className="icon" /> Live Feed</li>
+          <li><FaFolderOpen className="icon" /> Old Footage</li> {/* Added Old Footage icon */}
           <li><FaBell className="icon" /> Alerts</li>
           <li><FaCogs className="icon" /> Settings</li>
         </ul>
@@ -45,3 +46,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

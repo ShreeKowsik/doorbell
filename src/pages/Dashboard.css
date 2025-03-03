@@ -1,16 +1,37 @@
-/* Dashboard Background with Slow Hover Effect */
+/* Dashboard Background with Glowing Blue Border */
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background: transparent; /* Initially transparent */
+  background: transparent; /* Keep it transparent */
   font-family: "Poppins", sans-serif;
   color: white;
-  transition: background 2s ease-in-out; /* Slow transition effect */
+  transition: background 2s ease-in-out;
+  border-radius: 1rem;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px; /* Blue Box Shadow */
 }
 
-/* Hover effect */
-.dashboard-container:hover {
-  background: linear-gradient(135deg, mediumspringgreen, #008cff);
+/* Glowing Blue Border */
+.dashboard-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 1rem;
+  padding: 5px;
+  background: linear-gradient(to left, #007BFF, #5B42F3); /* Blue Gradient */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  filter: blur(15px);
 }
 
 /* Sidebar */
@@ -23,7 +44,7 @@
   flex-direction: column;
   border-radius: 20px;
   margin: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
 }
 
 .logo {
@@ -53,9 +74,26 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* Sidebar Icons */
 .icon {
   margin-right: 12px;
   font-size: 22px;
+}
+
+/* Old Footage Icon */
+.old-footage {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.old-footage:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Main Content */
@@ -75,7 +113,7 @@
   margin-bottom: 20px;
 }
 
-/* Video Container (Wider & Shorter like a TV shape) */
+/* Video Container */
 .video-container {
   width: 85%;
   max-width: 1200px;
@@ -83,7 +121,7 @@
   background: rgba(255, 255, 255, 0.2);
   padding: 10px;
   border-radius: 20px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,68 +159,66 @@
   }
 }
 
-/* Updated Button Style */
-.button {
-  all: unset;
-  display: flex;
+/* Card with Glowing Border */
+.card {
+  width: 190px;
+  height: 254px;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+}
+
+.card__content {
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Button Styles */
+button {
   align-items: center;
-  position: relative;
-  padding: 0.6em 2em;
-  border: mediumspringgreen solid 0.15em;
-  border-radius: 0.25em;
-  color: mediumspringgreen;
-  font-size: 1.5em;
-  font-weight: 600;
-  cursor: pointer;
-  overflow: hidden;
-  transition: border 300ms, color 300ms;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
   user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.button p {
-  z-index: 1;
+button:active,
+button:hover {
+  outline: 0;
 }
 
-.button:hover {
-  color: #212121;
+button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
 }
 
-.button:active {
-  border-color: teal;
+button:hover span {
+  background: none;
 }
 
-.button::after,
-.button::before {
-  content: "";
-  position: absolute;
-  width: 9em;
-  aspect-ratio: 1;
-  background: mediumspringgreen;
-  opacity: 50%;
-  border-radius: 50%;
-  transition: transform 500ms, background 300ms;
+button:active {
+  transform: scale(0.9);
 }
-
-.button::before {
-  left: 0;
-  transform: translateX(-8em);
-}
-
-.button::after {
-  right: 0;
-  transform: translateX(8em);
-}
-
-.button:hover:before {
-  transform: translateX(-1em);
-}
-
-.button:hover:after {
-  transform: translateX(1em);
-}
-
-.button:active:before,
-.button:active:after {
-  background: teal;
-}
-
