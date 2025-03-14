@@ -4,7 +4,6 @@ import { FaSignInAlt, FaUserPlus } from "react-icons/fa"; // Icons
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  // Retrieve stored credentials or use default ones
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -26,8 +25,10 @@ const LoginPage = () => {
     const savedPassword = localStorage.getItem("password");
 
     if (phone === savedPhone && password === savedPassword) {
-      alert("Login successful!");
-      navigate("/dashboard");
+      // ✅ Store phone number for Profile Page
+      localStorage.setItem("phoneNumber", phone); 
+
+      navigate("/dashboard"); // ✅ Directly redirect to Dashboard
     } else {
       alert("Invalid credentials!");
     }
