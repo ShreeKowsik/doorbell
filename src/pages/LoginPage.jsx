@@ -1,20 +1,40 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaSignInAlt, FaUserPlus } from "react-icons/fa"; // Icons
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const [phone, setPhone] = useState("1234567890");
-  const [password, setPassword] = useState("abcd");
-  const navigate = useNavigate(); // Hook to navigate
+  // Retrieve stored credentials or use default ones
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Load stored credentials from localStorage
+    const savedPhone = localStorage.getItem("phone");
+    const savedPassword = localStorage.getItem("password");
+
+    if (savedPhone && savedPassword) {
+      setPhone(savedPhone);
+      setPassword(savedPassword);
+    }
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (phone === "1234567890" && password === "abcd") {
+    const savedPhone = localStorage.getItem("phone");
+    const savedPassword = localStorage.getItem("password");
+
+    if (phone === savedPhone && password === savedPassword) {
       alert("Login successful!");
-      navigate("/dashboard"); // Redirect to Dashboard
+      navigate("/dashboard");
     } else {
       alert("Invalid credentials!");
     }
+  };
+
+  const handleNavigateToSignup = () => {
+    navigate("/signup"); // Navigate to Signup Page
   };
 
   return (
@@ -33,7 +53,16 @@ const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button type="submit">Login</button>
+
+        {/* Buttons Container */}
+        <div className="button-container">
+          <button type="submit">
+            <FaSignInAlt className="auth-icon" /> Login
+          </button>
+          <button type="button" onClick={handleNavigateToSignup}>
+            <FaUserPlus className="auth-icon" /> Signup
+          </button>
+        </div>
       </form>
     </div>
   );
